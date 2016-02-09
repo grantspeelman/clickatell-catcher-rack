@@ -1,4 +1,4 @@
-require "clickatell/sandbox/rack/version"
+require 'clickatell/sandbox/rack/version'
 
 module Clickatell
   module Sandbox
