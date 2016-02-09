@@ -1,3 +1,5 @@
+require 'rack/request'
+
 require 'clickatell/sandbox/rack/version'
 
 module Clickatell
@@ -10,10 +12,16 @@ module Clickatell
         end
 
         def call(env)
-          status, headers, body  = @app.call(env)
+          request = ::Rack::Request.new(env)
+          if request.path == '/rest/message'
 
-          # return result
-          [status, headers, body]
+            [200, {}, []]
+          else
+            status, headers, body  = @app.call(env)
+
+            # return result
+            [status, headers, body]
+          end
         end
       end
     end
