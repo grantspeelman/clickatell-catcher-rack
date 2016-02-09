@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Grant Petersen-Speelman']
   spec.email         = ['grantspeelman@gmail.com']
 
-  spec.summary       = 'local sandbox clickatell enviroment.'
-  spec.description   = 'Simple rack app the allows for a local sandbox clickatell enviroment.'
+  spec.summary       = 'local sandbox clickatell environment.'
+  spec.description   = 'Simple rack app the allows for a local sandbox clickatell environment.'
   spec.homepage      = 'https://github.com/grantspeelman/clickatell-sandbox-rack'
   spec.license       = 'MIT'
 
