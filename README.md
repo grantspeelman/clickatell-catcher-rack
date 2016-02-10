@@ -20,7 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+using in rails add a initializers file with the following:
+
+```ruby
+  require 'clickatell/sandbox/rack'
+  Rails.application.configure do
+    config.middleware.use Clickatell::Sandbox::Rack::Middleware
+  end
+```
+or add the following to your config.ru
+
+```ruby
+  require 'clickatell/sandbox/rack'
+  use Clickatell::Sandbox::Rack::Middleware
+```
 
 ## Development
 
