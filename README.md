@@ -1,13 +1,16 @@
 # Clickatell::Sandbox::Rack
 
-Simple rack app the allows for a local sandbox clickatell enviroment.
+Simple Lightweight rack app the allows for a local sandbox clickatell enviroment.
+This Rack app emulates some of the [Clickatells api](https://www.clickatell.com/help/apidocs/)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'clickatell-sandbox-rack'
+group :development do
+    gem 'clickatell-sandbox-rack'
+end
 ```
 
 And then execute:
@@ -23,17 +26,23 @@ Or install it yourself as:
 using in rails add a initializers file with the following:
 
 ```ruby
-  require 'clickatell/sandbox/rack'
-  Rails.application.configure do
-    config.middleware.use Clickatell::Sandbox::Rack::Middleware
+  if Rails.env.development?
+      require 'clickatell/sandbox/rack'
+      Rails.application.configure do
+        config.middleware.use Clickatell::Sandbox::Rack::Middleware
+      end
   end
 ```
-or add the following to your config.ru
+or for other rack apps add the following to your config.ru
 
 ```ruby
   require 'clickatell/sandbox/rack'
   use Clickatell::Sandbox::Rack::Middleware
 ```
+
+Now in development mode you can point you clickatell sms code at `http://localhost:3000/rest/message` and
+visit `http://localhost:3000/rest/message` to see the messages.
+Suggested a config to be able to switch between `https://api.clickatell.com/rest/message` and `http://localhost:3000/rest/message`
 
 ## Development
 
