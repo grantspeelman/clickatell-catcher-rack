@@ -64,4 +64,29 @@ describe 'Integration' do
       end
     end
   end
+
+  describe 'GET /rest/message' do
+    def add_message(message)
+      @middleware.add_message(MultiJson.dump(message))
+    end
+
+    before :each do
+      add_message('text' => 'This is a sample', 'to' => ['44711112222'])
+      get '/rest/message'
+    end
+
+    it 'returns 200' do
+      expect(last_response).to be_ok
+    end
+
+    it 'is text/html' do
+      expect(last_response.headers['Content-Type']).to eq('text/html')
+    end
+
+    it 'has html content' do
+      expect(last_response.body).to include('<html>')
+      expect(last_response.body).to include('this is a sample')
+      expect(last_response.body).to include('44711112222')
+    end
+  end
 end
