@@ -1,7 +1,7 @@
 require 'rack/request'
-require 'multi_json'
 
 require 'clickatell/sandbox/rack/version'
+require 'clickatell/sandbox/rack/message_adder'
 
 module Clickatell
   module Sandbox
@@ -12,15 +12,12 @@ module Clickatell
         def initialize(app)
           @app = app
           @messages = []
+          @message_adder = MessageAdder.new(@messages)
         end
 
         def add_message(request_body)
-          message = MultiJson.load(request_body)
-          @messages << message
-          response = { 'data' => { 'message' => [
-            { 'accepted' => true, 'to' => '27711234567', 'apiMessageId' => '1' }] } }
-          json_body = MultiJson.dump(response)
-          [200, { 'Content-Type' => 'application/json' }, [json_body]]
+          @message_adder.add(request_body)
+          @message_adder.rack_response
         end
 
         def render_messages
