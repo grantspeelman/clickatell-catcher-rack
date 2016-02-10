@@ -1,5 +1,7 @@
 # Clickatell::Sandbox::Rack
 
+[![Build Status](https://travis-ci.org/grantspeelman/clickatell-sandbox-rack.svg?branch=master)](https://travis-ci.org/grantspeelman/clickatell-sandbox-rack)
+
 Simple Lightweight rack app the allows for a local sandbox clickatell enviroment.
 This Rack app emulates some of the [Clickatells api](https://www.clickatell.com/help/apidocs/)
 
