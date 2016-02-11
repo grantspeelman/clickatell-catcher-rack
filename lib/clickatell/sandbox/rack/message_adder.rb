@@ -11,8 +11,7 @@ module Clickatell
 
         def add(request_body)
           message = MultiJson.load(request_body)
-          @messages.unshift(message)
-          @messages.pop if @messages.size > 25
+          @messages << message.merge('added_at' => Time.now)
           response = { 'data' => { 'message' => build_messages_response(message) } }
           @json_body = MultiJson.dump(response)
         end

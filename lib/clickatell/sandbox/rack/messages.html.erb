@@ -1,0 +1,81 @@
+<html>
+<head>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .custom-menu-wrapper {
+      background-color: #808080;
+      margin-bottom: 2.5em;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .custom-menu {
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .custom-menu .pure-menu-heading {
+      color: white;
+    }
+
+    .custom-menu .pure-menu-heading:hover {
+      background-color: transparent;
+    }
+
+    .custom-menu-top {
+      position: relative;
+      padding-top: .5em;
+      padding-bottom: .5em;
+    }
+
+    .custom-menu-brand {
+      display: block;
+      text-align: center;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+<div class="custom-menu-wrapper">
+  <div class="pure-menu custom-menu custom-menu-top">
+    <span class="pure-menu-heading custom-menu-brand">Clickatell sms catcher</span>
+  </div>
+</div>
+
+<div class="content pure-g">
+  <div class="pure-u-1-24"></div>
+  <div class="pure-u-23-24">
+    <table class="pure-table pure-table-horizontal">
+      <thead>
+      <tr>
+        <th>Time</th>
+        <th>To</th>
+        <th>Text</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @messages.each do |message| %>
+          <tr>
+            <td><%= message['added_at'] %></td>
+            <td><%= message['to'].join(',') %></td>
+            <td><%= message['text'] %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

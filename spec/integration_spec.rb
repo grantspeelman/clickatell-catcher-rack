@@ -28,6 +28,7 @@ describe 'Integration' do
   before :each do
     @test_rack = TestRack.new
     @middleware = Clickatell::Sandbox::Rack::Middleware.new(@test_rack)
+    Clickatell::Sandbox::Rack::SharedArray.new.clear
   end
 
   it 'return 404' do
@@ -47,7 +48,7 @@ describe 'Integration' do
 
       it 'adds the message' do
         expect(@middleware.messages).to contain_exactly(
-          'text' => 'This is a message', 'to' => ['27711234567']
+          'text' => 'This is a message', 'to' => ['27711234567'], 'added_at' => kind_of(Time)
         )
       end
 
@@ -85,7 +86,7 @@ describe 'Integration' do
 
     it 'has html content' do
       expect(last_response.body).to include('<html>')
-      expect(last_response.body).to include('this is a sample')
+      expect(last_response.body).to include('This is a sample')
       expect(last_response.body).to include('44711112222')
     end
   end

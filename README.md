@@ -31,7 +31,7 @@ using in rails add a initializers file with the following:
   if Rails.env.development?
       require 'clickatell/sandbox/rack'
       Rails.application.configure do
-        config.middleware.use Clickatell::Sandbox::Rack::Middleware
+        config.middleware.use Clickatell::Sandbox::Rack::Middleware, logger: Rails.logger
       end
   end
 ```
