@@ -7,7 +7,7 @@ module Clickatell
       class MessagesRenderer
         def initialize(messages)
           @messages = messages
-          @renderer = ERB.new(File.read(__dir__ + "/messages.html.erb"))
+          @renderer = ERB.new(File.read(__dir__ + '/messages.html.erb'))
         end
 
         def rack_response

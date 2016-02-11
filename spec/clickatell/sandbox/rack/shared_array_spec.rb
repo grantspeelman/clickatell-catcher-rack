@@ -8,19 +8,19 @@ describe Clickatell::Sandbox::Rack::SharedArray do
 
   describe '<<' do
     it 'adds the message' do
-      subject << {test: true}
+      subject << { test: true }
       expect(subject.first).to eq(test: true)
     end
 
     it 'adds 2 messages' do
-      subject << {test: true}
-      subject << {another: true}
-      expect(subject.to_a).to eq([{another: true},{test: true}])
+      subject << { test: true }
+      subject << { another: true }
+      expect(subject.to_a).to eq([{ another: true }, { test: true }])
     end
 
     it 'limits to 25' do
       27.times do |i|
-        subject << {'text' => i.to_s, 'to' => ['27711234567']}
+        subject << { 'text' => i.to_s, 'to' => ['27711234567'] }
       end
 
       expect(subject.size).to eq(25)

@@ -88,8 +88,8 @@ describe Clickatell::Sandbox::Rack::MessageAdder do
     it 'adds the messages' do
       expect(messages).to contain_exactly({ 'text' => 'Goodbye', 'to' => ['27711234567'],
                                             'added_at' => kind_of(Time) },
-                                          { 'text' => 'Hello', 'to' => ['27711234567'],
-                                            'added_at' => kind_of(Time) })
+                                          'text' => 'Hello', 'to' => ['27711234567'],
+                                          'added_at' => kind_of(Time))
     end
 
     it 'sets correct status' do

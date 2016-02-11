@@ -41,7 +41,7 @@ describe Clickatell::Sandbox::Rack::MessageAdder do
   describe 'render multiple recipients and messages' do
     before :each do
       messages.push('text' => 'message 2', 'to' => ['27711234567'])
-      messages.push('text' => 'message 1', 'to' => ['27711234567', '27711234588'])
+      messages.push('text' => 'message 1', 'to' => %w(27711234567 27711234588))
     end
 
     it 'sets correct status' do
@@ -59,7 +59,6 @@ describe Clickatell::Sandbox::Rack::MessageAdder do
 
     it 'includes to in body' do
       expect(rack_body).to include('27711234567')
-
     end
   end
 end

@@ -22,12 +22,12 @@ module Clickatell
 
         def add_message(request_body)
           @message_adder.add(request_body)
-          @logger.debug("[#{Process.pid}] Messages: " + @messages.inspect);
+          @logger.debug("[#{Process.pid}] Messages: " + @messages.inspect)
           @message_adder.rack_response
         end
 
         def render_messages
-          @logger.debug("[#{Process.pid}] Rendering Messages: " + @messages.inspect);
+          @logger.debug("[#{Process.pid}] Rendering Messages: " + @messages.inspect)
           @messages_renderer.rack_response
         end
 

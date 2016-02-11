@@ -1,4 +1,4 @@
-require "yaml/store"
+require 'yaml/store'
 
 module Clickatell
   module Sandbox
@@ -6,16 +6,24 @@ module Clickatell
       class SharedArray
         include Enumerable
 
-        def initialize(store_path: '')
-          if File.directory?('tmp')
-            @store = YAML::Store.new("tmp/clickatell_catcher.yml")
-          else
-            @store = YAML::Store.new("clickatell_catcher.yml")
-          end
+        def initialize
+          @store = YAML::Store.new(store_patch)
           @store.transaction do |store|
             store[:data] ||= []
           end
         end
+
+        private
+
+        def store_patch
+          if File.directory?('tmp')
+            'tmp/clickatell_catcher.yml'
+          else
+            'clickatell_catcher.yml'
+          end
+        end
+
+        public
 
         def clear
           @store.transaction do |store|
