@@ -46,6 +46,11 @@ Now in development mode you can point you clickatell sms code at `http://localho
 visit `http://localhost:3000/rest/message` to see the messages.
 Suggested a config to be able to switch between `https://api.clickatell.com/rest/message` and `http://localhost:3000/rest/message`
 
+## Plans
+
+* Standalone Version
+* Support for some of the [Error codes](https://www.clickatell.com/help/apidocs/error/List_of_Error_Codes.htm)
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
