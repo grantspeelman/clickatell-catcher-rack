@@ -1,7 +1,7 @@
 require 'yaml/store'
 
 module Clickatell
-  module Sandbox
+  module Catcher
     module Rack
       class SharedArray
         include Enumerable

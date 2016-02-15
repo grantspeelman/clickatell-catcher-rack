@@ -27,8 +27,8 @@ describe 'Integration' do
 
   before :each do
     @test_rack = TestRack.new
-    @middleware = Clickatell::Sandbox::Rack::Middleware.new(@test_rack)
-    Clickatell::Sandbox::Rack::SharedArray.new.clear
+    @middleware = Clickatell::Catcher::Rack::Middleware.new(@test_rack)
+    Clickatell::Catcher::Rack::SharedArray.new.clear
   end
 
   it 'return 404' do

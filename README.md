@@ -1,6 +1,6 @@
-# Clickatell::Sandbox::Rack
+# Clickatell::Catcher::Rack
 
-[![Build Status](https://travis-ci.org/grantspeelman/clickatell-sandbox-rack.svg?branch=master)](https://travis-ci.org/grantspeelman/clickatell-sandbox-rack)
+[![Build Status](https://travis-ci.org/grantspeelman/clickatell-catcher-rack.svg?branch=master)](https://travis-ci.org/grantspeelman/clickatell-catcher-rack)
 
 Simple Lightweight rack app the allows for a local sandbox clickatell enviroment.
 This Rack app emulates some of the [Clickatells api](https://www.clickatell.com/help/apidocs/)
@@ -11,7 +11,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 group :development do
-    gem 'clickatell-sandbox-rack'
+    gem 'clickatell-catcher-rack'
 end
 ```
 
@@ -21,7 +21,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install clickatell-sandbox-rack
+    $ gem install clickatell-catcher-rack
 
 ## Usage
 
@@ -29,17 +29,17 @@ using in rails add a initializers file with the following:
 
 ```ruby
   if Rails.env.development?
-      require 'clickatell/sandbox/rack'
+      require 'clickatell/catcher/rack'
       Rails.application.configure do
-        config.middleware.use Clickatell::Sandbox::Rack::Middleware, logger: Rails.logger
+        config.middleware.use Clickatell::Catcher::Rack::Middleware, logger: Rails.logger
       end
   end
 ```
 or for other rack apps add the following to your config.ru
 
 ```ruby
-  require 'clickatell/sandbox/rack'
-  use Clickatell::Sandbox::Rack::Middleware
+  require 'clickatell/catcher/rack'
+  use Clickatell::Catcher::Rack::Middleware
 ```
 
 Now in development mode you can point you clickatell sms code at `http://localhost:3000/rest/message` and
@@ -54,7 +54,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/grantspeelman/clickatell-sandbox-rack.
+Bug reports and pull requests are welcome on GitHub at https://github.com/grantspeelman/clickatell-catcher-rack.
 
 
 ## License

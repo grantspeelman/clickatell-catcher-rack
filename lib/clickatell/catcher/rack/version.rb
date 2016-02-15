@@ -1,5 +1,5 @@
 module Clickatell
-  module Sandbox
+  module Catcher
     module Rack
       VERSION = '0.1.0'.freeze
     end

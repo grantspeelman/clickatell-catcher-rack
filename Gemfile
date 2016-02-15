@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in clickatell-sandbox-rack.gemspec
+# Specify your gem's dependencies in clickatell-catcher-rack.gemspec
 gemspec

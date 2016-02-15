@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Clickatell::Sandbox::Rack::SharedArray do
-  subject { Clickatell::Sandbox::Rack::SharedArray.new }
+describe Clickatell::Catcher::Rack::SharedArray do
+  subject { Clickatell::Catcher::Rack::SharedArray.new }
   before :each do
     subject.clear
   end

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Clickatell::Sandbox::Rack::MessageAdder do
+describe Clickatell::Catcher::Rack::MessageAdder do
   let(:messages) { [] }
-  subject { Clickatell::Sandbox::Rack::MessageAdder.new(messages) }
+  subject { Clickatell::Catcher::Rack::MessageAdder.new(messages) }
 
   def add_json_message(message)
     subject.add(MultiJson.dump(message))

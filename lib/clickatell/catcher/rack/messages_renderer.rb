@@ -2,7 +2,7 @@ require 'multi_json'
 require 'erb'
 
 module Clickatell
-  module Sandbox
+  module Catcher
     module Rack
       class MessagesRenderer
         def initialize(messages)

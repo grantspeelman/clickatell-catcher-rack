@@ -1,7 +1,7 @@
 require 'multi_json'
 
 module Clickatell
-  module Sandbox
+  module Catcher
     module Rack
       class MessageAdder
         def initialize(messages)

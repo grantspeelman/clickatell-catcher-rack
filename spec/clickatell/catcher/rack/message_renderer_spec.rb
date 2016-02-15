@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Clickatell::Sandbox::Rack::MessageAdder do
+describe Clickatell::Catcher::Rack::MessageAdder do
   let(:messages) { [] }
-  subject { Clickatell::Sandbox::Rack::MessagesRenderer.new(messages) }
+  subject { Clickatell::Catcher::Rack::MessagesRenderer.new(messages) }
 
   def rack_status
     subject.rack_response[0]

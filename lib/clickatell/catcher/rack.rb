@@ -1,20 +1,20 @@
 require 'rack/request'
 require 'rack/nulllogger'
 
-require 'clickatell/sandbox/rack/version'
-require 'clickatell/sandbox/rack/message_adder'
-require 'clickatell/sandbox/rack/messages_renderer'
-require 'clickatell/sandbox/rack/shared_array'
+require 'clickatell/catcher/rack/version'
+require 'clickatell/catcher/rack/message_adder'
+require 'clickatell/catcher/rack/messages_renderer'
+require 'clickatell/catcher/rack/shared_array'
 
 module Clickatell
-  module Sandbox
+  module Catcher
     module Rack
       class Middleware
         attr_reader :messages
 
         def initialize(app, options = {})
           @app = app
-          @messages = Clickatell::Sandbox::Rack::SharedArray.new
+          @messages = Clickatell::Catcher::Rack::SharedArray.new
           @logger = options[:logger] || ::Rack::NullLogger.new(nil)
           @message_adder = MessageAdder.new(@messages)
           @messages_renderer = MessagesRenderer.new(@messages)

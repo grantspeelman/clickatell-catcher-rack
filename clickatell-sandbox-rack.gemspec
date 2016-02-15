@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'clickatell/sandbox/rack/version'
+require 'clickatell/catcher/rack/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'clickatell-sandbox-rack'
-  spec.version       = Clickatell::Sandbox::Rack::VERSION
+  spec.name          = 'clickatell-catcher-rack'
+  spec.version       = Clickatell::Catcher::Rack::VERSION
   spec.authors       = ['Grant Petersen-Speelman']
   spec.email         = ['grantspeelman@gmail.com']
 
-  spec.summary       = 'local sandbox clickatell environment.'
-  spec.description   = 'Simple rack app the allows for a local sandbox clickatell environment.'
-  spec.homepage      = 'https://github.com/grantspeelman/clickatell-sandbox-rack'
+  spec.summary       = 'local sms catcher clickatell environment.'
+  spec.description   = 'Simple rack app the allows for a local catcher clickatell environment.'
+  spec.homepage      = 'https://github.com/grantspeelman/clickatell-catcher-rack'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
