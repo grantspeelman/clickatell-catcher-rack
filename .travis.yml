@@ -6,3 +6,6 @@ rvm:
   - 2.3
   - 2.4
 before_install: gem install bundler -v 1.11.2
+env:
+  - GEMFILE_RACK_VERSION="~> 1.1.0" GEMFILE_MULTI_JSON_VERSION="~> 1.3.0"
+  - GEMFILE_RACK_VERSION="~> 2.0"
