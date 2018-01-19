@@ -1,5 +1,4 @@
-require 'rack/request'
-require 'rack/nulllogger'
+require 'rack'
 
 require 'clickatell/catcher/rack/version'
 require 'clickatell/catcher/rack/message_adder'
